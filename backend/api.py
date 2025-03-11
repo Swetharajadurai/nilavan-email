@@ -17,7 +17,7 @@ AUTHORIZED_BEARER_TOKEN =os.getenv("BEARER_TOKEN")
 @app.route("/send-email", methods=["POST"])
 def send_email():
     auth_header = request.headers.get("Authorization")
-    if not auth_header or not auth_header.startswith("Bearer "):
+    if not auth_header :
         return jsonify({"error": "Unauthorized"}), 401
     
    
