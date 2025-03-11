@@ -3,11 +3,14 @@ import sendgrid
 from sendgrid.helpers.mail import Mail
 import os
 from dotenv import load_dotenv
+from flask_cors import CORS  # Import CORS
 
 load_dotenv()
 
 app = Flask(__name__)
 
+# 🔥 ALLOW YOUR FRONTEND DOMAIN (Replace with your actual Vercel domain)
+CORS(app, resources={r"/send-email": {"origins": "*"}})
 
 SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
 
@@ -24,7 +27,7 @@ def send_email():
 
     sg = sendgrid.SendGridAPIClient(api_key=SENDGRID_API_KEY)
     mail = Mail(
-        from_email="ifo@leadtap.ai",
+        from_email="info@leadtap.ai",  # Corrected from 'ifo@'
         to_emails="swetha@leadtap.ai",
         subject="New Contact Form Submission",
         plain_text_content=f"Name: {name}\nEmail: {email}\nPhone: {phone}\n\nMessage:\n{message}"
