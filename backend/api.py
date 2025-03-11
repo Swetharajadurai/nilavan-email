@@ -26,8 +26,8 @@ def send_email():
 
     sg = sendgrid.SendGridAPIClient(api_key=SENDGRID_API_KEY)
     mail = Mail(
-        from_email="swetha@leadtap.ai",
-        to_emails="swethadurai2233@gmail.com",
+        from_email="info@leadtap.ai",
+        to_emails="swetha@leadtap.ai",
         subject="New Contact Form Submission",
         plain_text_content=f"Name: {name}\nEmail: {email}\nPhone: {phone}\n\nMessage:\n{message}"
     )
