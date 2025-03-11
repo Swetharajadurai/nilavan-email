@@ -2,13 +2,12 @@ from flask import Flask, request, jsonify
 import sendgrid
 from sendgrid.helpers.mail import Mail
 import os
-from flask_cors import CORS
 from dotenv import load_dotenv
 
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app)
+
 
 SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
 
