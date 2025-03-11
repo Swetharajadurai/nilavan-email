@@ -20,7 +20,7 @@ def send_email():
     if not auth_header or not auth_header.startswith("Bearer "):
         return jsonify({"error": "Unauthorized"}), 401
     
-    token = auth_header.split("Bearer ")[1]
+   
     if token != AUTHORIZED_BEARER_TOKEN:
         return jsonify({"error": "Invalid token"}), 403
 
