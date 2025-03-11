@@ -8,7 +8,7 @@ from flask_cors import CORS  # Import CORS
 load_dotenv()
 
 app = Flask(__name__)
-
+CORS(app)
 # 🔥 ALLOW YOUR FRONTEND DOMAIN (Replace with your actual Vercel domain)
 CORS(app, resources={r"/send-email": {"origins": "*"}})
 
